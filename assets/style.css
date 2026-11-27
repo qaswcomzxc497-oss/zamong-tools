@@ -131,7 +131,7 @@ a{color:inherit}
 .stat3{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:16px 0 0;padding:0}
 .stat3 li{background:#FCF8F4;border:1px solid var(--line-2);border-radius:13px;padding:10px 8px;text-align:center}
 .stat3 span{display:block;font-size:11px;color:var(--ink-3);font-weight:700;margin-bottom:3px}
-.stat3 b{font-size:14.5px;font-weight:800;letter-spacing:-0.03em;font-variant-numeric:tabular-nums}
+.stat3 b{font-size:13.5px;font-weight:800;letter-spacing:-0.03em;font-variant-numeric:tabular-nums;white-space:nowrap;display:block;overflow:hidden;text-overflow:ellipsis}
 
 .tbl{width:100%;border-collapse:collapse;margin-top:16px;font-size:13.5px}
 .tbl caption{text-align:left}
@@ -206,6 +206,11 @@ a{color:inherit}
   .tab{font-size:14.5px;padding:13px 6px}
   .promo{padding:26px 24px}
   .promo h3{font-size:22px}
+}
+@media (max-width:359px){
+  .stat3 b{font-size:12.5px}
+  .stat3 span{font-size:10.5px}
+  .r-big{font-size:32px}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none !important;transition:none !important}
