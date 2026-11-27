@@ -207,7 +207,7 @@
   var tabs = Array.prototype.slice.call(document.querySelectorAll(".tab"));
   var panels = Array.prototype.slice.call(document.querySelectorAll(".panel"));
 
-  function showTab(name) {
+  function applyTab(name) {
     tabs.forEach(function (t) {
       var on = t.dataset.panel === name;
       t.classList.toggle("is-on", on);
@@ -218,11 +218,19 @@
       p.classList.toggle("is-on", on);
       if (on) p.removeAttribute("hidden"); else p.setAttribute("hidden", "");
     });
+  }
+  function showTab(name) {
+    applyTab(name);
     if (history.replaceState) history.replaceState(null, "", "#" + name);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
+  var TAB_NAMES = ["salary", "fuel", "fixed"];
   tabs.forEach(function (t) {
     t.addEventListener("click", function () { showTab(t.dataset.panel); });
+  });
+  window.addEventListener("hashchange", function () {
+    var h = (location.hash || "").replace("#", "");
+    if (TAB_NAMES.indexOf(h) >= 0) applyTab(h);
   });
 
   /* ───────── ① 월급 ───────── */
@@ -446,17 +454,8 @@
   });
 
   var start = (location.hash || "").replace("#", "");
-  if (["salary", "fuel", "fixed"].indexOf(start) >= 0) {
-    tabs.forEach(function (t) {
-      var on = t.dataset.panel === start;
-      t.classList.toggle("is-on", on);
-      t.setAttribute("aria-selected", on ? "true" : "false");
-    });
-    panels.forEach(function (p) {
-      var on = p.id === "panel-" + start;
-      p.classList.toggle("is-on", on);
-      if (on) p.removeAttribute("hidden"); else p.setAttribute("hidden", "");
-    });
+  if (TAB_NAMES.indexOf(start) >= 0) {
+    applyTab(start);
     window.scrollTo(0, 0);
   }
 })();
