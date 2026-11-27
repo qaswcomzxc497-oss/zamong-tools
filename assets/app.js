@@ -15,8 +15,8 @@
   var STANDARD_CREDIT = 130000;
 
   /* ───────── 계산 코어 ───────── */
-  function floor10(v) { return Math.floor(v / 10) * 10; }
-  function floor1000(v) { return Math.floor(v / 1000) * 1000; }
+  function floor10(v) { return Math.floor(v / 10 + 1e-9) * 10; }
+  function floor1000(v) { return Math.floor(v / 1000 + 1e-9) * 1000; }
   function won(v) { return Math.round(v); }
 
   function laborDeduction(gross) {
