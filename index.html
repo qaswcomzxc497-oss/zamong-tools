@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>직장인 계산기 3종 — 월급 실수령액·출퇴근 유류비·고정비 비율 | 자몽스튜디오</title>
+<meta name="description" content="연봉이나 월급만 넣으면 2026년 4대보험과 소득세를 반영한 월 실수령액을, 왕복 거리와 유가만 넣으면 출퇴근 유류비를, 고정지출만 넣으면 고정비 비율과 통장 쪼개기 금액을 바로 계산합니다. 회원가입 없이 무료.">
+<meta name="keywords" content="월급 실수령액 계산기,연봉 실수령액,2026 4대보험 요율,실수령액,출퇴근 유류비 계산기,기름값 계산,연비 유류비,고정비 비율,통장 쪼개기,직장인 계산기,자몽스튜디오">
+<meta name="author" content="자몽스튜디오 ZAMONG STUDIO">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#FBF6F1">
+<link rel="canonical" href="https://qaswcomzxc497-oss.github.io/zamong-tools/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="자몽스튜디오 계산기">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="직장인 계산기 3종 — 월급 실수령액·출퇴근 유류비·고정비 비율">
+<meta property="og:description" content="연봉·유가·고정지출만 넣으면 끝. 2026년 4대보험·소득세 반영 월 실수령액, 출퇴근 유류비, 고정비 비율과 통장 쪼개기까지 3초 계산.">
+<meta property="og:url" content="https://qaswcomzxc497-oss.github.io/zamong-tools/">
+<meta property="og:image" content="https://qaswcomzxc497-oss.github.io/zamong-tools/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="직장인 계산기 3종 | 자몽스튜디오">
+<meta name="twitter:description" content="월급 실수령액 · 출퇴근 유류비 · 고정비 비율을 한 페이지에서 3초 만에.">
+<meta name="twitter:image" content="https://qaswcomzxc497-oss.github.io/zamong-tools/assets/og.png">
+
+<!-- Google AdSense: 승인 후 아래 주석을 실제 스크립트로 바꾸고, <head>에 adsbygoogle.js 를 넣습니다.
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://qaswcomzxc497-oss.github.io/zamong-tools/#website",
+      "url": "https://qaswcomzxc497-oss.github.io/zamong-tools/",
+      "name": "자몽스튜디오 직장인 계산기",
+      "inLanguage": "ko-KR",
+      "publisher": { "@type": "Organization", "name": "자몽스튜디오 ZAMONG STUDIO" }
+    },
+    {
+      "@type": "ItemList",
+      "name": "직장인 계산기 3종",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "item": { "@type": "WebApplication", "name": "월급 실수령액 계산기", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "url": "https://qaswcomzxc497-oss.github.io/zamong-tools/#salary", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" } } },
+        { "@type": "ListItem", "position": 2, "item": { "@type": "WebApplication", "name": "출퇴근 유류비 계산기", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "url": "https://qaswcomzxc497-oss.github.io/zamong-tools/#fuel", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" } } },
+        { "@type": "ListItem", "position": 3, "item": { "@type": "WebApplication", "name": "고정비 비율 · 통장 쪼개기 진단기", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "url": "https://qaswcomzxc497-oss.github.io/zamong-tools/#fixed", "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" } } }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "월급 실수령액은 어떤 기준으로 계산하나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "2026년 근로자 부담 4대보험 요율(국민연금 4.75%, 건강보험 3.595%, 장기요양은 건강보험료의 13.14%, 고용보험 0.9%)과 소득세법의 근로소득공제·기본공제·근로소득세액공제를 반영한 연간 추정 세액을 12로 나눠 계산합니다. 실제 금액은 회사의 비과세 항목과 연말정산 결과에 따라 달라집니다." },
+        },
+        {
+          "@type": "Question",
+          "name": "출퇴근 유류비는 어떻게 계산하나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "왕복 거리를 연비로 나눠 하루 사용 연료를 구하고 유가를 곱해 1일 유류비를 냅니다. 여기에 월 출근일수를 곱해 월 유류비를, 12개월을 곱해 연간 유류비를 계산하며 톨게이트비는 따로 더합니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "고정비 비율 적정선은 몇 퍼센트인가요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "일반적으로 월 실수령액의 30~40%를 고정비 상한으로 봅니다. 30% 이하면 안정적, 40%를 넘으면 변동지출을 줄이거나 고정지출을 정리하는 것이 좋고, 50%를 넘으면 통장 쪼개기와 고정비 재협상을 먼저 하는 편이 안전합니다." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">본문으로 바로 가기</a>
+
+<header class="site-head">
+  <div class="wrap head-in">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="17" r="11" fill="#F4634E"/><circle cx="16" cy="17" r="7.4" fill="#FFB3A5"/><path d="M16 6c1.6-2.4 4.2-3.2 6.2-3.1-.3 2-1.6 4-3.9 4.8" fill="#5E8C61"/><circle cx="16" cy="17" r="7.4" fill="none" stroke="#F4634E" stroke-width="1.2" stroke-dasharray="1.4 2.4" opacity=".7"/></svg>
+      <span class="brand-txt"><b>자몽스튜디오</b><i>ZAMONG STUDIO</i></span>
+    </div>
+    <p class="head-note">회원가입 없이 무료</p>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero wrap">
+    <h1>직장인 돈 계산,<br><em>3초</em>면 끝.</h1>
+    <p class="lead">월급 실수령액 · 출퇴근 유류비 · 고정비 비율.<br>숫자만 넣으면 바로 나옵니다.</p>
+  </section>
+
+  <nav class="tabs wrap" role="tablist" aria-label="계산기 선택">
+    <button class="tab is-on" role="tab" id="tab-salary" aria-controls="panel-salary" aria-selected="true" data-panel="salary">
+      <span class="tab-ico">₩</span><span>월급 실수령액</span>
+    </button>
+    <button class="tab" role="tab" id="tab-fuel" aria-controls="panel-fuel" aria-selected="false" data-panel="fuel">
+      <span class="tab-ico">⛽</span><span>출퇴근 유류비</span>
+    </button>
+    <button class="tab" role="tab" id="tab-fixed" aria-controls="panel-fixed" aria-selected="false" data-panel="fixed">
+      <span class="tab-ico">📊</span><span>고정비 진단</span>
+    </button>
+  </nav>
+
+  <!-- ① 월급 실수령액 -->
+  <section class="panel wrap is-on" id="panel-salary" role="tabpanel" aria-labelledby="tab-salary" tabindex="0">
+    <div class="card">
+      <div class="card-head">
+        <h2>월급 실수령액 계산기</h2>
+        <p>2026년 4대보험 요율 · 소득세 반영</p>
+      </div>
+
+      <div class="seg" role="group" aria-label="입력 기준">
+        <button class="seg-btn is-on" data-salary-mode="annual" type="button">연봉으로</button>
+        <button class="seg-btn" data-salary-mode="monthly" type="button">월급으로</button>
+      </div>
+
+      <div class="field">
+        <label for="s-income"><span id="s-income-label">연봉</span> <small>세전</small></label>
+        <div class="input-wrap">
+          <input id="s-income" inputmode="numeric" autocomplete="off" value="36,000,000" aria-describedby="s-income-hint">
+          <span class="unit" id="s-income-unit">원</span>
+        </div>
+        <p class="hint" id="s-income-hint">퇴직금은 빼고, 계약서상 연봉 총액을 넣어 주세요.</p>
+      </div>
+
+      <div class="grid2">
+        <div class="field">
+          <label for="s-nontax">비과세 식대 <small>월</small></label>
+          <div class="input-wrap">
+            <input id="s-nontax" inputmode="numeric" autocomplete="off" value="200,000">
+            <span class="unit">원</span>
+          </div>
+          <p class="hint">기본 20만 원</p>
+        </div>
+        <div class="field">
+          <label for="s-family">부양가족 수 <small>본인 포함</small></label>
+          <div class="input-wrap">
+            <input id="s-family" inputmode="numeric" autocomplete="off" value="1">
+            <span class="unit">명</span>
+          </div>
+          <p class="hint">본인만이면 1명</p>
+        </div>
+      </div>
+
+      <div class="quick" aria-label="연봉 빠른 선택">
+        <button type="button" data-annual="30000000">3,000만</button>
+        <button type="button" data-annual="36000000">3,600만</button>
+        <button type="button" data-annual="45000000">4,500만</button>
+        <button type="button" data-annual="60000000">6,000만</button>
+      </div>
+    </div>
+
+    <div class="card result" id="r-salary">
+      <p class="r-label">예상 월 실수령액</p>
+      <p class="r-big"><span id="r-salary-net">—</span><span class="r-unit">원</span></p>
+      <p class="r-sub" id="r-salary-sub">—</p>
+
+      <div class="bar-row" aria-hidden="true">
+        <div class="bar"><div class="bar-fill" id="r-salary-bar"></div></div>
+      </div>
+
+      <table class="tbl" id="r-salary-table">
+        <caption class="sr-only">월 공제 내역</caption>
+        <thead><tr><th scope="col">공제 항목</th><th scope="col">월 금액</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">국민연금</th><td data-cell="pension">—</td></tr>
+          <tr><th scope="row">건강보험</th><td data-cell="health">—</td></tr>
+          <tr><th scope="row">장기요양보험</th><td data-cell="ltc">—</td></tr>
+          <tr><th scope="row">고용보험</th><td data-cell="employ">—</td></tr>
+          <tr><th scope="row">소득세</th><td data-cell="tax">—</td></tr>
+          <tr><th scope="row">지방소득세</th><td data-cell="local">—</td></tr>
+          <tr class="sum"><th scope="row">공제 합계</th><td data-cell="deduct">—</td></tr>
+        </tbody>
+      </table>
+
+      <ul class="facts">
+        <li><span>월 세전 급여</span><b data-fact="gross">—</b></li>
+        <li><span>연간 실수령액</span><b data-fact="annualNet">—</b></li>
+        <li><span>실효 공제율</span><b data-fact="rate">—</b></li>
+      </ul>
+
+      <p class="note">실제 금액은 회사의 비과세 항목·상여 지급 방식·연말정산 결과에 따라 달라집니다. 국민연금은 기준소득월액 41만~659만 원 구간을 적용합니다.</p>
+    </div>
+
+    <aside class="promo">
+      <p class="promo-kicker">월급 관리</p>
+      <h3>실수령액,<br>엑셀 하나로 관리하세요</h3>
+      <p class="promo-body">수입·지출만 적으면 대시보드와 그래프가 자동으로 채워지는 <b>오토시트 생활가계부</b>(구글시트·엑셀). 7,000원.</p>
+      <div class="promo-btns">
+        <a class="btn primary" href="https://smartstore.naver.com/autosheet" target="_blank" rel="noopener">스마트스토어에서 보기</a>
+        <a class="btn ghost" href="https://ctee.kr/place/autosheetlab" target="_blank" rel="noopener">크티에서 보기</a>
+      </div>
+    </aside>
+
+    <div class="ad-slot" data-ad="salary"><!-- 애드센스 광고 영역 (승인 후 코드 삽입) --></div>
+  </section>
+
+  <!-- ② 출퇴근 유류비 -->
+  <section class="panel wrap" id="panel-fuel" role="tabpanel" aria-labelledby="tab-fuel" tabindex="0" hidden>
+    <div class="card">
+      <div class="card-head">
+        <h2>출퇴근 유류비 계산기</h2>
+        <p>하루·한 달·1년 기름값이 한 번에</p>
+      </div>
+
+      <div class="grid2">
+        <div class="field">
+          <label for="f-distance">왕복 거리</label>
+          <div class="input-wrap">
+            <input id="f-distance" inputmode="decimal" autocomplete="off" value="40">
+            <span class="unit">km</span>
+          </div>
+          <p class="hint">집↔회사 편도 × 2</p>
+        </div>
+        <div class="field">
+          <label for="f-eff">차량 연비</label>
+          <div class="input-wrap">
+            <input id="f-eff" inputmode="decimal" autocomplete="off" value="12">
+            <span class="unit">km/L</span>
+          </div>
+          <p class="hint">실주행 연비 기준</p>
+        </div>
+        <div class="field">
+          <label for="f-price">유가</label>
+          <div class="input-wrap">
+            <input id="f-price" inputmode="numeric" autocomplete="off" value="1,650">
+            <span class="unit">원/L</span>
+          </div>
+          <p class="hint">휘발유 기준</p>
+        </div>
+        <div class="field">
+          <label for="f-days">월 출근일수</label>
+          <div class="input-wrap">
+            <input id="f-days" inputmode="numeric" autocomplete="off" value="22">
+            <span class="unit">일</span>
+          </div>
+          <p class="hint">기본 22일</p>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="f-toll">월 톨게이트비 <small>선택</small></label>
+        <div class="input-wrap">
+          <input id="f-toll" inputmode="numeric" autocomplete="off" value="0">
+          <span class="unit">원</span>
+        </div>
+        <p class="hint">하이패스 이용료가 있으면 넣어 주세요.</p>
+      </div>
+    </div>
+
+    <div class="card result" id="r-fuel">
+      <p class="r-label">월 출퇴근 유류비</p>
+      <p class="r-big"><span id="r-fuel-month">—</span><span class="r-unit">원</span></p>
+      <p class="r-sub" id="r-fuel-sub">—</p>
+
+      <ul class="stat3">
+        <li><span>1일</span><b id="r-fuel-day">—</b></li>
+        <li><span>1년</span><b id="r-fuel-year">—</b></li>
+        <li><span>1km당</span><b id="r-fuel-km">—</b></li>
+      </ul>
+
+      <table class="tbl" id="r-fuel-table">
+        <caption class="sr-only">유류비 상세</caption>
+        <tbody>
+          <tr><th scope="row">월 유류비</th><td data-cell="monthlyFuel">—</td></tr>
+          <tr><th scope="row">월 톨게이트비</th><td data-cell="toll">—</td></tr>
+          <tr class="sum"><th scope="row">월 합계</th><td data-cell="monthlyTotal">—</td></tr>
+          <tr><th scope="row">연간 합계</th><td data-cell="annualTotal">—</td></tr>
+          <tr><th scope="row">월 주유량</th><td data-cell="liters">—</td></tr>
+          <tr><th scope="row">월 주행거리</th><td data-cell="kmMonth">—</td></tr>
+        </tbody>
+      </table>
+
+      <p class="note">공회전·에어컨·정체를 포함한 실제 소모는 계산보다 많습니다. 연비는 계기판 평균보다 10% 정도 낮게 잡으면 가깝습니다.</p>
+    </div>
+
+    <aside class="promo">
+      <p class="promo-kicker">차량 관리</p>
+      <h3>기름값·정비·보험까지<br>한 장에 정리</h3>
+      <p class="promo-body">주유·세차·정비·보험을 적으면 월 지출과 연비가 자동 집계되는 <b>오토시트 차계부</b>(구글시트·엑셀). 7,000원.</p>
+      <div class="promo-btns">
+        <a class="btn primary" href="https://smartstore.naver.com/autosheet" target="_blank" rel="noopener">차계부 템플릿 보기</a>
+        <a class="btn ghost" href="https://ctee.kr/place/autosheetlab" target="_blank" rel="noopener">크티에서 보기</a>
+      </div>
+    </aside>
+
+    <div class="ad-slot" data-ad="fuel"><!-- 애드센스 광고 영역 (승인 후 코드 삽입) --></div>
+  </section>
+
+  <!-- ③ 고정비 진단 -->
+  <section class="panel wrap" id="panel-fixed" role="tabpanel" aria-labelledby="tab-fixed" tabindex="0" hidden>
+    <div class="card">
+      <div class="card-head">
+        <h2>고정비 비율 · 통장 쪼개기 진단기</h2>
+        <p>새는 돈이 아니라, 새기 전에 잠기는 돈</p>
+      </div>
+
+      <div class="field">
+        <label for="x-income">월 실수령액</label>
+        <div class="input-wrap">
+          <input id="x-income" inputmode="numeric" autocomplete="off" value="3,000,000">
+          <span class="unit">원</span>
+        </div>
+        <p class="hint"><button class="linkbtn" type="button" id="x-pull">① 계산기 결과 가져오기</button></p>
+      </div>
+
+      <p class="group-label">월 고정지출</p>
+      <div class="grid2 tight">
+        <div class="field">
+          <label for="x-rent">월세·관리비</label>
+          <div class="input-wrap"><input id="x-rent" inputmode="numeric" autocomplete="off" value="600,000"><span class="unit">원</span></div>
+        </div>
+        <div class="field">
+          <label for="x-tel">통신·인터넷</label>
+          <div class="input-wrap"><input id="x-tel" inputmode="numeric" autocomplete="off" value="80,000"><span class="unit">원</span></div>
+        </div>
+        <div class="field">
+          <label for="x-ins">보험료</label>
+          <div class="input-wrap"><input id="x-ins" inputmode="numeric" autocomplete="off" value="100,000"><span class="unit">원</span></div>
+        </div>
+        <div class="field">
+          <label for="x-sub">구독료</label>
+          <div class="input-wrap"><input id="x-sub" inputmode="numeric" autocomplete="off" value="30,000"><span class="unit">원</span></div>
+        </div>
+        <div class="field">
+          <label for="x-trans">교통·유류비</label>
+          <div class="input-wrap"><input id="x-trans" inputmode="numeric" autocomplete="off" value="150,000"><span class="unit">원</span></div>
+        </div>
+        <div class="field">
+          <label for="x-etc">기타 고정</label>
+          <div class="input-wrap"><input id="x-etc" inputmode="numeric" autocomplete="off" value="50,000"><span class="unit">원</span></div>
+        </div>
+      </div>
+      <p class="hint">대출 상환·보험·구독처럼 매달 같은 금액이 빠지는 것만 넣으세요.</p>
+    </div>
+
+    <div class="card result" id="r-fixed">
+      <p class="r-label">고정비 비중</p>
+      <p class="r-big"><span id="r-fixed-ratio">—</span><span class="r-unit">%</span></p>
+      <p class="r-badge" id="r-fixed-badge">—</p>
+      <p class="r-sub" id="r-fixed-sub">—</p>
+
+      <div class="scale" aria-hidden="true">
+        <div class="scale-track"><div class="scale-fill" id="r-fixed-scale"></div>
+          <span class="scale-mark" style="left:30%"></span><span class="scale-mark" style="left:40%"></span>
+        </div>
+        <div class="scale-labels"><span>0%</span><span>30% 적정</span><span>40% 주의</span><span>60%+</span></div>
+      </div>
+
+      <table class="tbl" id="r-fixed-table">
+        <caption class="sr-only">통장 쪼개기 추천</caption>
+        <thead><tr><th scope="col">통장</th><th scope="col">월 금액</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">고정비 통장</th><td data-cell="acctFixed">—</td></tr>
+          <tr><th scope="row">생활비 통장</th><td data-cell="acctLiving">—</td></tr>
+          <tr class="sum"><th scope="row">저축·비상금 통장</th><td data-cell="acctSave">—</td></tr>
+        </tbody>
+      </table>
+
+      <ul class="facts">
+        <li><span>고정지출 합계</span><b data-fact="fixedTotal">—</b></li>
+        <li><span>남는 금액</span><b data-fact="left">—</b></li>
+        <li><span>비상금 3개월 목표</span><b data-fact="emergency">—</b></li>
+      </ul>
+
+      <p class="note">권장 비율은 고정비 50% · 생활비 30% · 저축 20%를 기본으로 잡았습니다. 고정비가 40%를 넘으면 생활비 비중을 낮춰 계산합니다.</p>
+    </div>
+
+    <aside class="promo">
+      <p class="promo-kicker">고정비 관리</p>
+      <h3>새는 돈부터 막고<br>남는 돈을 굴리기</h3>
+      <p class="promo-body">고정지출·구독·카드값을 항목별로 자동 집계하는 <b>오토시트 생활가계부</b>와, 차량 지출까지 잡는 <b>차계부</b>. 각 7,000원.</p>
+      <div class="promo-btns">
+        <a class="btn primary" href="https://smartstore.naver.com/autosheet" target="_blank" rel="noopener">가계부 템플릿 보기</a>
+        <a class="btn ghost" href="https://ctee.kr/place/autosheetlab" target="_blank" rel="noopener">크티에서 보기</a>
+      </div>
+    </aside>
+
+    <div class="ad-slot" data-ad="fixed"><!-- 애드센스 광고 영역 (승인 후 코드 삽입) --></div>
+  </section>
+
+  <section class="wrap about">
+    <h2>계산 기준</h2>
+    <p><b>월급 실수령액</b> — 2026년 근로자 부담 요율(국민연금 4.75%, 건강보험 3.595%, 장기요양은 건강보험료의 13.14%, 고용보험 0.9%)과 근로소득공제·기본공제(1인 150만 원)·보험료공제·근로소득세액공제를 반영한 연간 세액을 12개월로 나눈 값입니다. 지방소득세는 소득세의 10%입니다.</p>
+    <p><b>출퇴근 유류비</b> — 왕복 거리 ÷ 연비 × 유가로 1일 유류비를 구하고 월 출근일수와 12개월을 곱했습니다. 톨게이트비는 별도로 더합니다.</p>
+    <p><b>고정비 비율</b> — 고정지출 합계 ÷ 월 실수령액입니다. 통장 쪼개기는 고정비 50% · 생활비 30% · 저축 20%를 기준으로 계산합니다.</p>
+    <p class="disclaimer">모든 결과는 참고용 추정치이며 세무·재무 자문이 아닙니다. 실제 금액은 급여명세서, 국민건강보험공단·국민연금공단 안내, 연말정산 결과를 따릅니다.</p>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="foot-brand">자몽스튜디오 <span>ZAMONG STUDIO</span></p>
+    <p class="foot-links">
+      <a href="https://smartstore.naver.com/autosheet" target="_blank" rel="noopener">스마트스토어</a>
+      <a href="https://ctee.kr/place/autosheetlab" target="_blank" rel="noopener">크티</a>
+    </p>
+    <p class="copy">© 2026 ZAMONG STUDIO. 계산 결과는 참고용입니다.</p>
+  </div>
+</footer>
+
+<script src="assets/app.js" defer></script>
+</body>
+</html>

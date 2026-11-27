@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://qaswcomzxc497-oss.github.io/zamong-tools/sitemap.xml
