@@ -222,6 +222,10 @@ a{color:inherit}
   .promo h3{font-size:22px}
   .store-in{padding:22px 24px}
 }
+@media (max-width:420px){
+  .promo-btns{flex-direction:column}
+  .promo-btns .btn{width:100%;flex:1 1 auto}
+}
 @media (max-width:359px){
   .stat3 b{font-size:12.5px}
   .stat3 span{font-size:10.5px}
