@@ -59,12 +59,10 @@ a{color:inherit}
 .tab{
   appearance:none;border:0;background:transparent;color:var(--ink-2);
   font:inherit;font-size:13px;font-weight:700;letter-spacing:-0.02em;
-  padding:10px 4px;border-radius:11px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;
-  transition:background .16s ease,color .16s ease;
+  padding:12px 4px;border-radius:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:background .16s ease,color .16s ease;white-space:nowrap;
 }
-.tab-ico{font-size:13px;opacity:.65;line-height:1}
 .tab.is-on{background:var(--ink);color:#fff}
-.tab.is-on .tab-ico{opacity:1}
 .tab:active{transform:scale(.985)}
 
 /* cards */
@@ -108,7 +106,11 @@ a{color:inherit}
   font:inherit;font-size:12px;font-weight:700;padding:7px 12px;border-radius:999px;cursor:pointer;
 }
 .quick button:hover{border-color:var(--peach);color:var(--coral-d)}
-.linkbtn{appearance:none;border:0;background:none;padding:0;font:inherit;font-size:11.5px;font-weight:700;color:var(--coral-d);text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.linkbtn{appearance:none;border:1px solid var(--line);background:#fff;padding:6px 12px;border-radius:999px;
+  font:inherit;font-size:11.5px;font-weight:700;color:var(--coral-d);cursor:pointer;
+  transition:border-color .15s,background .15s;}
+.linkbtn:hover{border-color:var(--peach);background:var(--coral-soft)}
+.pull{margin:9px 0 0}
 
 /* result */
 .result{background:linear-gradient(180deg,#FFFFFF 0%,#FFFCFA 100%);border-color:#F0E4DA}
@@ -195,7 +197,7 @@ a{color:inherit}
   .lead{font-size:15.5px}
   .card{padding:26px 24px;border-radius:22px}
   .r-big{font-size:46px}
-  .tab{font-size:14px;flex-direction:row;gap:7px;padding:12px 6px}
+  .tab{font-size:14.5px;padding:13px 6px}
   .promo{padding:26px 24px}
   .promo h3{font-size:22px}
 }

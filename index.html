@@ -97,15 +97,9 @@
   </section>
 
   <nav class="tabs wrap" role="tablist" aria-label="계산기 선택">
-    <button class="tab is-on" role="tab" id="tab-salary" aria-controls="panel-salary" aria-selected="true" data-panel="salary">
-      <span class="tab-ico">₩</span><span>월급 실수령액</span>
-    </button>
-    <button class="tab" role="tab" id="tab-fuel" aria-controls="panel-fuel" aria-selected="false" data-panel="fuel">
-      <span class="tab-ico">⛽</span><span>출퇴근 유류비</span>
-    </button>
-    <button class="tab" role="tab" id="tab-fixed" aria-controls="panel-fixed" aria-selected="false" data-panel="fixed">
-      <span class="tab-ico">📊</span><span>고정비 진단</span>
-    </button>
+    <button class="tab is-on" role="tab" id="tab-salary" aria-controls="panel-salary" aria-selected="true" data-panel="salary"><span>월급 실수령액</span></button>
+    <button class="tab" role="tab" id="tab-fuel" aria-controls="panel-fuel" aria-selected="false" data-panel="fuel"><span>출퇴근 유류비</span></button>
+    <button class="tab" role="tab" id="tab-fixed" aria-controls="panel-fixed" aria-selected="false" data-panel="fixed"><span>고정비 진단</span></button>
   </nav>
 
   <!-- ① 월급 실수령액 -->
@@ -308,7 +302,7 @@
           <input id="x-income" inputmode="numeric" autocomplete="off" value="3,000,000">
           <span class="unit">원</span>
         </div>
-        <p class="hint"><button class="linkbtn" type="button" id="x-pull">① 계산기 결과 가져오기</button></p>
+        <p class="pull"><button class="linkbtn" type="button" id="x-pull">① 실수령액 가져오기</button></p>
       </div>
 
       <p class="group-label">월 고정지출</p>
