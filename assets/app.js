@@ -233,6 +233,19 @@
   var salaryMode = "annual";
   var lastSalaryNet = 0;
 
+  function syncIncomeLabel() {
+    sIncomeLabel.textContent = salaryMode === "annual" ? "연봉" : "월급";
+    var hint = document.getElementById("s-income-hint");
+    if (hint) {
+      hint.textContent = salaryMode === "annual"
+        ? "퇴직금은 빼고, 계약서상 연봉 총액을 넣어 주세요."
+        : "세전 월 급여 총액을 넣어 주세요.";
+    }
+    Array.prototype.forEach.call(document.querySelectorAll("[data-salary-mode]"), function (x) {
+      x.classList.toggle("is-on", x.dataset.salaryMode === salaryMode);
+    });
+  }
+
   function readSalary() {
     var income = num(sIncome);
     var annual = salaryMode === "annual" ? income : income * 12;
@@ -278,10 +291,7 @@
       else cur = Math.round(cur * 12);
       salaryMode = mode;
       sIncome.value = fmt(cur);
-      sIncomeLabel.textContent = mode === "annual" ? "연봉" : "월급";
-      document.querySelectorAll("[data-salary-mode]").forEach(function (x) {
-        x.classList.toggle("is-on", x.dataset.salaryMode === mode);
-      });
+      syncIncomeLabel();
       renderSalary(); save();
     });
   });
@@ -289,10 +299,7 @@
   Array.prototype.forEach.call(document.querySelectorAll("[data-annual]"), function (b) {
     b.addEventListener("click", function () {
       salaryMode = "annual";
-      sIncomeLabel.textContent = "연봉";
-      document.querySelectorAll("[data-salary-mode]").forEach(function (x) {
-        x.classList.toggle("is-on", x.dataset.salaryMode === "annual");
-      });
+      syncIncomeLabel();
       sIncome.value = fmt(Number(b.dataset.annual));
       renderSalary(); save();
     });
@@ -404,10 +411,7 @@
       var data = JSON.parse(raw);
       if (data.mode === "monthly") {
         salaryMode = "monthly";
-        sIncomeLabel.textContent = "월급";
-        Array.prototype.forEach.call(document.querySelectorAll("[data-salary-mode]"), function (x) {
-          x.classList.toggle("is-on", x.dataset.salaryMode === "monthly");
-        });
+        syncIncomeLabel();
       }
       Object.keys(data.values || {}).forEach(function (id) {
         var el = document.getElementById(id);
