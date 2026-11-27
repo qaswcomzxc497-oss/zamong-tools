@@ -26,6 +26,7 @@ body{
   margin:0;font-family:var(--font);background:var(--bg);color:var(--ink);
   font-size:16px;line-height:1.6;letter-spacing:-0.01em;
   -webkit-font-smoothing:antialiased;
+  word-break:keep-all;overflow-wrap:break-word;
   background-image:radial-gradient(120% 60% at 50% -10%, #FFF1EA 0%, rgba(255,241,234,0) 60%);
   background-repeat:no-repeat;
 }
@@ -153,7 +154,11 @@ a{color:inherit}
 .scale-track{position:relative;height:9px;border-radius:999px;background:linear-gradient(90deg,#EEF5EE 0%,#EEF5EE 30%,#FFF6E4 30%,#FFF6E4 40%,#FFF0EC 40%,#FFE0DA 60%,#FFC9C0 100%)}
 .scale-fill{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:999px;background:var(--ink);opacity:.22;transition:width .3s ease}
 .scale-mark{position:absolute;top:-3px;bottom:-3px;width:2px;background:#fff;box-shadow:0 0 0 1px rgba(31,36,48,.14);border-radius:2px}
-.scale-labels{display:flex;justify-content:space-between;margin-top:6px;font-size:10.5px;color:var(--ink-3);font-weight:600}
+.scale-labels{position:relative;height:15px;margin-top:6px;font-size:10.5px;color:var(--ink-3);font-weight:600}
+.scale-labels span{position:absolute;top:0;white-space:nowrap}
+.scale-labels .l0{left:0}
+.scale-labels .l35{left:35%;transform:translateX(-50%)}
+.scale-labels .l60{right:0}
 
 /* promo */
 .promo{background:var(--ink);color:#fff;border-radius:var(--radius);padding:22px 20px;margin-bottom:14px;position:relative;overflow:hidden}
