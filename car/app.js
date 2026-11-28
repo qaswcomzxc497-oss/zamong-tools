@@ -296,7 +296,11 @@
     L.push('END:VCALENDAR');
     return L.map(icsFold).join('\r\n') + '\r\n';
   }
-  function downloadICS(events, name) {    var text = buildICS(events, name);
+  function evSummary(name) {
+    return '🔧 ' + name + (/점검$/.test(name) ? '' : ' 점검');
+  }
+  function downloadICS(events, name) {
+    var text = buildICS(events, name);
     var blob = new Blob([text], { type: 'text/calendar;charset=utf-8' });
     var url = URL.createObjectURL(blob);
     var a = document.createElement('a');
