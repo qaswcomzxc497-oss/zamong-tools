@@ -54,8 +54,8 @@
           period: '60,000km 또는 48개월', note: '배터리 열관리의 핵심입니다. 정비소에서 누유·수위를 함께 확인하세요.' },
         { key: 'hvcheck', name: '고전압 배터리 상태 점검', mo: 12, ageNew: true,
           period: '12개월마다 (SOH 점검)', note: '배터리 건강도(SOH)를 연 1회 점검하세요. 보증 조건도 함께 확인하면 좋습니다.' },
-        { key: 'battery', name: '12V 보조 배터리', mo: 48, ageNew: true,
-          period: '36~48개월', note: '전기차도 12V 배터리는 소모품입니다. 시동(전원)이 늦으면 점검하세요.' }
+        { key: 'battery', name: '12V 보조 배터리', mo: 48, ageNew: true, absoluteAge: true,
+          period: '36~48개월', note: '전기차도 12V 배터리는 소모품입니다. 시동(전원)이 늦으면 점검하세요. 최근에 갈았다면 여유가 있습니다.' }
       ];
     }
 
@@ -71,8 +71,8 @@
     var coolant = { key: 'coolant', name: '냉각수', km: 100000, mo: 60, ageNew: true,
       period: '100,000km 또는 60개월', note: '보충할 때는 정품 냉각수를 쓰세요. 엔진 과열의 주범입니다.' };
 
-    var battery = { key: 'battery', name: '12V 배터리', mo: 48, ageNew: true,
-      period: '36~48개월', note: '3~5년이 평균 수명입니다. 시동이 늦거나 실내등이 어두우면 교체 시기입니다.' };
+    var battery = { key: 'battery', name: '12V 배터리', mo: 48, ageNew: true, absoluteAge: true,
+      period: '36~48개월', note: '3~5년이 평균 수명입니다. 시동이 늦거나 실내등이 어두우면 교체 시기입니다. 최근에 갈았다면 여유가 있습니다.' };
 
     return [oil].concat(common, [trans, coolant, battery]);
   }
@@ -143,7 +143,8 @@
       kmLeft = Math.max(0, item.km - kmUsed);
     }
     if (item.mo && !hasBase) {
-      moUsed = ageMo;
+      // 교체 기록이 없으면 ‘주기 경계에서 마지막으로 갈았다’고 보고 추정한다(타이어·배터리는 신차 기준)
+      moUsed = item.absoluteAge ? ageMo : (ageMo % item.mo);
       moLeft = Math.max(0, item.mo - moUsed);
     }
 
@@ -181,7 +182,7 @@
     return {
       key: item.key, name: item.name, period: item.period, note: item.note,
       state: st, ratio: clamp(ratio, 0, 1), main: main, sub: sub,
-      estimated: !!(item.km && !hasBase), leftMonths: leftMonths,
+      estimated: !hasBase, leftMonths: leftMonths,
       dueDate: leftMonths != null ? addMonths(now, Math.max(0, leftMonths)) : null
     };
   }
@@ -190,7 +191,7 @@
     var ageMo = Math.max(0, (now - car.start) / MO);
     var rotUsed = car.odo % 10000;
     var rotLeft = Math.max(0, 10000 - rotUsed);
-    var repUsed = car.lastTire != null ? Math.max(0, car.odo - car.lastTire) : car.odo;
+    var repUsed = car.lastTire != null ? Math.max(0, car.odo - car.lastTire) : (car.odo % item.replaceKm);
     var repLeft = Math.max(0, item.replaceKm - repUsed);
     var repMoUsed = car.lastTire != null ? null : ageMo;
     var repMoLeft = repMoUsed != null ? Math.max(0, item.replaceMo - repMoUsed) : null;
@@ -245,6 +246,7 @@
     var big = (month ? ym(due) : due.getFullYear() + '년 (연중)');
     var sub;
     if (months < 0) sub = '검사 기한이 지났습니다 · 바로 검사받으세요';
+    else if (!month) sub = due.getFullYear() + '년 안에 받으시면 됩니다 · 정확한 기한은 등록일 기준';
     else if (months < 1) sub = '한 달 안에 검사받으셔야 합니다';
     else sub = '약 ' + Math.round(months) + '개월 남음 · 비사업용 승용차 기준';
     return { due: due, big: big, sub: sub, months: months, exact: !!month };
@@ -541,8 +543,8 @@
       var insp = inspection(lastResult.car, lastResult.now);
       downloadICS([{
         date: insp.due, uid: 'inspection-' + icsDate(insp.due),
-        summary: '🚗 자동차 정기검사',
-        desc: '비사업용 승용차 기준입니다. 정확한 기한은 차량등록증의 최초 등록일로 확인하세요.'
+        summary: insp.exact ? '🚗 자동차 정기검사' : '🚗 자동차 정기검사 기한 확인 (' + insp.due.getFullYear() + '년 중)',
+        desc: (insp.exact ? '비사업용 승용차 기준입니다. ' : '비사업용 승용차 기준 · 검사 기한이 ' + insp.due.getFullYear() + '년 중입니다. ') + '정확한 기한은 차량등록증의 최초 등록일로 확인하세요.'
       }], '자동차_정기검사');
     });
 
@@ -550,7 +552,7 @@
       if (!lastResult) return;
       var ev = [];
       var insp = inspection(lastResult.car, lastResult.now);
-      ev.push({ date: insp.due, uid: 'inspection-' + icsDate(insp.due), summary: '🚗 자동차 정기검사', desc: '비사업용 승용차 기준 · 정확한 기한은 차량등록증 확인' });
+      ev.push({ date: insp.due, uid: 'inspection-' + icsDate(insp.due), summary: insp.exact ? '🚗 자동차 정기검사' : '🚗 자동차 정기검사 기한 확인 (' + insp.due.getFullYear() + '년 중)', desc: '비사업용 승용차 기준 · 정확한 기한은 차량등록증 확인' });
       lastResult.results.forEach(function (r) {
         if (!r.dueDate) return;
         ev.push({
