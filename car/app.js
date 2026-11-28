@@ -183,7 +183,7 @@
       key: item.key, name: item.name, period: item.period, note: item.note,
       state: st, ratio: clamp(ratio, 0, 1), main: main, sub: sub,
       estimated: !hasBase, leftMonths: leftMonths,
-      dueDate: leftMonths != null ? addMonths(now, Math.max(0, leftMonths)) : null
+      dueDate: leftMonths != null ? new Date(now.getTime() + Math.max(0, leftMonths) * MO) : null
     };
   }
 
@@ -225,7 +225,7 @@
       state: st, ratio: clamp(ratio, 0, 1), main: main, sub: rotText,
       subState: rotUsed / 10000 >= 1 ? 'late' : rotUsed / 10000 >= 0.8 ? 'soon' : 'ok',
       estimated: car.lastTire == null, leftMonths: leftMonths,
-      dueDate: leftMonths != null ? addMonths(now, Math.max(0, leftMonths)) : null,
+      dueDate: leftMonths != null ? new Date(now.getTime() + Math.max(0, leftMonths) * MO) : null,
       isTire: true
     };
   }
@@ -296,8 +296,7 @@
     L.push('END:VCALENDAR');
     return L.map(icsFold).join('\r\n') + '\r\n';
   }
-  function downloadICS(events, name) {
-    var text = buildICS(events, name);
+  function downloadICS(events, name) {    var text = buildICS(events, name);
     var blob = new Blob([text], { type: 'text/calendar;charset=utf-8' });
     var url = URL.createObjectURL(blob);
     var a = document.createElement('a');
@@ -557,7 +556,7 @@
         if (!r.dueDate) return;
         ev.push({
           date: r.dueDate, uid: r.key + '-' + icsDate(r.dueDate),
-          summary: '🔧 ' + r.name + ' 점검',
+          summary: evSummary(r.name),
           desc: '권장 ' + r.period + ' · ' + FUEL_LABEL[lastResult.car.fuel] + ' ' + lastResult.car.year + '년식 ' + fmt(lastResult.car.odo) + 'km 기준'
         });
       });
@@ -572,7 +571,7 @@
       if (!r || !r.dueDate) return;
       downloadICS([{
         date: r.dueDate, uid: r.key + '-' + icsDate(r.dueDate),
-        summary: '🔧 ' + r.name + ' 점검',
+        summary: evSummary(r.name),
         desc: '권장 ' + r.period + ' · ' + FUEL_LABEL[lastResult.car.fuel] + ' ' + lastResult.car.year + '년식 ' + fmt(lastResult.car.odo) + 'km 기준'
       }], r.name.replace(/[\\/:*?"<>|·\s]/g, '_'));
     });
