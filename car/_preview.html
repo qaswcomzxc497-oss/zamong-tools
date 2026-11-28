@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>뷰포트 확인용</title>
+<style>html,body{margin:0;background:#d9d4ce}iframe{border:0;display:block;background:#FBF6F1}</style>
+</head>
+<body>
+<iframe id="f" title="미리보기"></iframe>
+<script>
+var p = new URLSearchParams(location.search);
+var w = Number(p.get('w') || 390), h = Number(p.get('h') || 844);
+var f = document.getElementById('f');
+f.src = './index.html';
+f.style.width = w + 'px'; f.style.height = h + 'px';
+</script>
+</body>
+</html>

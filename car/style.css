@@ -41,6 +41,7 @@ img,svg{max-width:100%}
 .skip{position:absolute;left:-9999px}
 .skip:focus{left:12px;top:12px;z-index:99;background:#fff;padding:10px 16px;border-radius:10px;font-weight:800}
 a{color:inherit}
+[hidden]{display:none !important}
 h1,h2,h3,p,ul,ol{margin:0}
 
 /* header */
