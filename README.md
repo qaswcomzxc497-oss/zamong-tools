@@ -1,9 +1,10 @@
-# 자몽스튜디오 직장인 계산기 3종
+# 자몽스튜디오 도구 모음
 
-월급 실수령액 · 출퇴근 유류비 · 고정비 비율을 한 페이지에서 바로 계산하는 무료 웹 도구입니다.
-회원가입·설치 없이 동작하는 순수 정적 사이트(HTML/CSS/JS)이며, GitHub Pages로 배포됩니다.
+직장인 계산기 3종과 차량 정비·소모품 체크 앱을 GitHub Pages로 배포하는 무료 웹 도구 모음입니다.
+회원가입·설치 없이 동작하는 순수 정적 사이트(HTML/CSS/JS)입니다.
 
 - 배포 주소: https://qaswcomzxc497-oss.github.io/zamong-tools/
+- 차량 정비 체크: https://qaswcomzxc497-oss.github.io/zamong-tools/car/
 - 제작: 자몽스튜디오 (ZAMONG STUDIO)
 
 ## 계산기
@@ -30,9 +31,23 @@ assets/style.css    # 모바일 우선 스타일
 assets/app.js       # 계산 로직 + UI. window.ZamongCalc 로 코어 노출
 assets/og.png       # OpenGraph 이미지 1200×630
 assets/favicon.svg
+car/index.html      # 내 차 정비·소모품 체크 앱
+car/style.css
+car/app.js          # 소모품 진단 로직 + .ics 내보내기 + localStorage
 robots.txt
 sitemap.xml
 ```
+
+## 내 차 정비·소모품 체크 (`/car/`)
+
+유종·연식·주행거리를 3단계로 입력하면 소모품 8종의 남은 주행거리와 예상 교체 시점, 자동차 정기검사 시기를 신호등 색으로 보여줍니다.
+
+- 유종 분기: 가솔린 / 디젤 / 하이브리드 / 전기차(감속기 오일·고전압 배터리 냉각수·SOH 점검)
+- 정기검사: 비사업용 승용차 기준(신차 등록 4년 후 첫 검사, 이후 2년마다)
+- `.ics` 내보내기: 정기검사 + 항목별 점검일을 캘린더에 추가(7일 전 알람)
+- 입력값은 `localStorage`(`zamong_car_check_v1`)에 저장되며, 초기화 버튼으로 지울 수 있습니다.
+- 쿠팡 파트너스 추천을 넣으려면 `car/app.js`의 `COUPANG_ITEMS` 배열에 `{ name, price, url, tag }`를 추가하면 결과 하단에 자동으로 표시됩니다(비어 있으면 표시되지 않음).
+- 정적 자산을 고친 뒤에는 `car/index.html`의 `?v=` 쿼리를 올려 브라우저 캐시(10분)를 피하세요.
 
 ## 상품·채널 연결
 
