@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>내 차 정비·소모품 체크 — 엔진오일·타이어 교체 시기 계산 | 차곡카 · 자몽스튜디오</title>
+<meta name="description" content="유종·연식·주행거리만 넣으면 엔진오일, 타이어, 브레이크 패드, 12V 배터리 등 소모품 8종의 교체 시기와 남은 주행거리, 자동차 정기검사 시기를 바로 알려드립니다. 전기차·하이브리드도 지원하고 점검 일정은 캘린더(.ics)로 저장. 회원가입 없이 무료.">
+<meta name="keywords" content="엔진오일 교체 주기,타이어 교체 시기,브레이크 패드 교체,자동차 정기검사 시기,소모품 교체 주기,미션오일,냉각수 교체,12V 배터리 수명,전기차 감속기 오일,차계부,차곡카">
+<meta name="author" content="자몽스튜디오 ZAMONG STUDIO">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#FBF6F1">
+<link rel="canonical" href="https://qaswcomzxc497-oss.github.io/zamong-tools/car/">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/favicon.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="자몽스튜디오 · 차곡카">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="내 차 정비·소모품 체크 — 언제 갈아야 할까?">
+<meta property="og:description" content="유종·연식·주행거리만 넣으면 소모품 8종 교체 시기와 정기검사일이 한눈에. 신호등 색으로 바로 확인하고 캘린더에 저장하세요.">
+<meta property="og:url" content="https://qaswcomzxc497-oss.github.io/zamong-tools/car/">
+<meta property="og:image" content="https://qaswcomzxc497-oss.github.io/zamong-tools/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="내 차 정비·소모품 체크 | 차곡카">
+<meta name="twitter:description" content="엔진오일·타이어·브레이크·배터리 교체 시기와 자동차 정기검사일을 3단계로 확인.">
+<meta name="twitter:image" content="https://qaswcomzxc497-oss.github.io/zamong-tools/assets/og.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "내 차 정비·소모품 체크",
+      "url": "https://qaswcomzxc497-oss.github.io/zamong-tools/car/",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "inLanguage": "ko-KR",
+      "description": "유종·연식·주행거리를 입력하면 엔진오일, 에어컨 필터, 브레이크 오일·패드, 타이어, 변속기 오일, 냉각수, 12V 배터리 등 소모품 8종의 교체 시기와 자동차 정기검사 시기를 계산합니다.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "자몽스튜디오 ZAMONG STUDIO",
+        "sameAs": [
+          "https://smartstore.naver.com/autosheet",
+          "https://www.youtube.com/@chagokcar"
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "자몽스튜디오 계산기", "item": "https://qaswcomzxc497-oss.github.io/zamong-tools/" },
+        { "@type": "ListItem", "position": 2, "name": "내 차 정비·소모품 체크", "item": "https://qaswcomzxc497-oss.github.io/zamong-tools/car/" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "엔진오일은 얼마마다 갈아야 하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "일반 승용차 가솔린 기준 10,000km 또는 12개월 중 먼저 오는 쪽입니다. 시내 단거리 주행이 많거나 디젤·터보 차량은 7,500km 전후로 짧게 잡는 경우가 많습니다. 제조사·차종마다 다르므로 차량 매뉴얼의 정비 지침을 함께 확인하세요."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "자동차 정기검사는 언제 받나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "비사업용 승용차는 신차 등록 후 4년이 지난 때 첫 정기검사를 받고, 이후 2년마다 받습니다. 정확한 기한은 차량등록증의 최초 등록일을 기준으로 정해지며, 기한을 넘기면 과태료가 부과될 수 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "전기차도 이 체크를 쓸 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네. 전기차를 선택하면 엔진오일·변속기 오일 대신 감속기 오일, 고전압 배터리 냉각수, 고전압 배터리 상태 점검, 12V 보조 배터리 항목으로 바뀌어 안내합니다."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#wizard">본문으로 바로 가기</a>
+
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="../">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="17" r="11" fill="#F4634E"/><circle cx="16" cy="17" r="7.4" fill="#FFB3A5"/><path d="M16 6c1.6-2.4 4.2-3.2 6.2-3.1-.3 2-1.6 4-3.9 4.8" fill="#5E8C61"/><circle cx="16" cy="17" r="7.4" fill="none" stroke="#F4634E" stroke-width="1.2" stroke-dasharray="1.4 2.4" opacity=".7"/></svg>
+      <span class="brand-txt"><b>자몽스튜디오</b><i>ZAMONG STUDIO</i></span>
+    </a>
+    <a class="head-link" href="../">계산기 3종 →</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero wrap">
+    <p class="kicker">차곡카 × 자몽스튜디오</p>
+    <h1>내 차,<br><em>언제 갈아야</em> 할까?</h1>
+    <p class="lead">유종·연식·주행거리만 넣으면<br>소모품 8종 교체 시기와 정기검사일이 한눈에 나옵니다.</p>
+    <ul class="hero-badges" aria-label="이용 안내">
+      <li>회원가입 없이 무료</li>
+      <li>전기차·하이브리드 지원</li>
+      <li>캘린더 저장</li>
+    </ul>
+  </section>
+
+  <section class="wrap" id="wizard">
+    <ol class="steps" id="steps" aria-label="입력 단계">
+      <li class="is-on" data-step="1"><b>1</b><span>유종</span></li>
+      <li data-step="2"><b>2</b><span>차량 정보</span></li>
+      <li data-step="3"><b>3</b><span>주행 습관</span></li>
+    </ol>
+
+    <form class="card" id="carForm" novalidate>
+      <!-- STEP 1 -->
+      <div class="step-panel" data-panel="1">
+        <h2 class="step-title">어떤 연료를 쓰시나요?</h2>
+        <p class="step-sub">차량에 맞는 점검 항목으로 바뀝니다.</p>
+
+        <div class="fuel-grid" role="radiogroup" aria-label="유종 선택">
+          <label class="fuel">
+            <input type="radio" name="fuel" value="gasoline" checked>
+            <span class="fuel-ico" aria-hidden="true">⛽</span>
+            <b>가솔린</b>
+            <i>휘발유</i>
+          </label>
+          <label class="fuel">
+            <input type="radio" name="fuel" value="diesel">
+            <span class="fuel-ico" aria-hidden="true">🚚</span>
+            <b>디젤</b>
+            <i>경유</i>
+          </label>
+          <label class="fuel">
+            <input type="radio" name="fuel" value="hybrid">
+            <span class="fuel-ico" aria-hidden="true">🔋</span>
+            <b>하이브리드</b>
+            <i>가솔린+전기</i>
+          </label>
+          <label class="fuel">
+            <input type="radio" name="fuel" value="ev">
+            <span class="fuel-ico" aria-hidden="true">⚡</span>
+            <b>전기차</b>
+            <i>EV</i>
+          </label>
+        </div>
+
+        <p class="hint">전기차를 고르면 엔진오일 대신 <b>감속기 오일·고전압 배터리</b> 점검 항목으로 바뀝니다.</p>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step-panel" data-panel="2" hidden>
+        <h2 class="step-title">차량 정보를 알려주세요</h2>
+        <p class="step-sub">차량등록증을 보면 바로 알 수 있습니다.</p>
+
+        <div class="field">
+          <label for="year">차량 연식 <small>출고 연도</small></label>
+          <div class="select-wrap">
+            <select id="year" name="year"></select>
+          </div>
+          <p class="hint">차량등록증의 ‘최초 등록일’ 연도</p>
+        </div>
+
+        <div class="field">
+          <label for="odo">현재 총 주행거리</label>
+          <div class="input-wrap">
+            <input id="odo" name="odo" inputmode="numeric" autocomplete="off" value="80,000">
+            <span class="unit">km</span>
+          </div>
+          <div class="quick" data-target="odo" aria-label="주행거리 빠른 선택">
+            <button type="button" data-val="30000">3만</button>
+            <button type="button" data-val="50000">5만</button>
+            <button type="button" data-val="80000">8만</button>
+            <button type="button" data-val="120000">12만</button>
+          </div>
+          <p class="hint err" id="odoErr" hidden>주행거리를 숫자로 입력해 주세요.</p>
+        </div>
+
+        <div class="field">
+          <label for="regMonth">출고 월 <small>선택 · 정기검사 계산에 사용</small></label>
+          <div class="select-wrap">
+            <select id="regMonth" name="regMonth"></select>
+          </div>
+          <p class="hint">모르면 ‘모름’으로 두세요. 연 단위로 계산합니다.</p>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="step-panel" data-panel="3" hidden>
+        <h2 class="step-title">주행 습관과 최근 교체</h2>
+        <p class="step-sub">모르는 항목은 비워 두셔도 됩니다.</p>
+
+        <div class="field">
+          <label for="monthly">월평균 주행거리</label>
+          <div class="input-wrap">
+            <input id="monthly" name="monthly" inputmode="numeric" autocomplete="off" value="1,000">
+            <span class="unit">km/월</span>
+          </div>
+          <div class="quick" data-target="monthly" aria-label="월 주행거리 빠른 선택">
+            <button type="button" data-val="500">500</button>
+            <button type="button" data-val="1000">1,000</button>
+            <button type="button" data-val="2000">2,000</button>
+            <button type="button" data-val="3000">3,000</button>
+          </div>
+          <p class="hint">출퇴근 거리 × 20일 + 주말 나들이 정도로 생각하시면 됩니다.</p>
+        </div>
+
+        <div class="field" id="oilField">
+          <label for="lastOil">최근 엔진오일 교체 주행거리 <small>선택</small></label>
+          <div class="input-wrap">
+            <input id="lastOil" name="lastOil" inputmode="numeric" autocomplete="off" placeholder="예: 72,000">
+            <span class="unit">km</span>
+          </div>
+          <p class="hint">엔진오일을 마지막으로 갈았을 때의 계기판 숫자</p>
+        </div>
+
+        <div class="field">
+          <label for="lastTire">최근 타이어 교체 주행거리 <small>선택</small></label>
+          <div class="input-wrap">
+            <input id="lastTire" name="lastTire" inputmode="numeric" autocomplete="off" placeholder="예: 55,000">
+            <span class="unit">km</span>
+          </div>
+          <p class="hint">타이어 4본을 바꾼 뒤 주행한 거리를 알면 정확해집니다.</p>
+        </div>
+
+        <p class="note-sm">교체 기록을 비워 두면 주행거리 기준으로 추정합니다. 기록을 넣을수록 정확해집니다.</p>
+      </div>
+
+      <div class="wiz-nav">
+        <button type="button" class="btn ghost" id="prevBtn" hidden>이전</button>
+        <button type="button" class="btn primary" id="nextBtn">다음</button>
+        <button type="submit" class="btn primary" id="submitBtn" hidden>결과 보기</button>
+      </div>
+      <p class="wiz-foot">
+        <button type="button" class="reset-link" id="resetBtn">입력값 초기화</button>
+      </p>
+    </form>
+  </section>
+
+  <!-- 결과 -->
+  <section class="wrap results" id="results" hidden aria-live="polite">
+    <div class="card sum-card">
+      <div class="sum-top">
+        <p class="kicker">내 차 정보</p>
+        <button type="button" class="linkbtn" id="editBtn">수정</button>
+      </div>
+      <p class="sum-title" id="sumTitle">—</p>
+      <ul class="stat3" id="sumStats"></ul>
+    </div>
+
+    <div class="card grade-card">
+      <p class="kicker">지금 상태</p>
+      <p class="grade-head" id="gradeHead">—</p>
+      <div class="grade-grid">
+        <div class="grade-cell late"><b id="cntLate">0</b><span>교체 권장</span></div>
+        <div class="grade-cell soon"><b id="cntSoon">0</b><span>곧 점검</span></div>
+        <div class="grade-cell ok"><b id="cntOk">0</b><span>여유</span></div>
+      </div>
+    </div>
+
+    <div class="card insp-card">
+      <p class="kicker">자동차 정기검사</p>
+      <p class="insp-big" id="inspBig">—</p>
+      <p class="insp-sub" id="inspSub">—</p>
+      <p class="insp-note">비사업용 승용차는 신차 등록 후 <b>4년 뒤 첫 검사</b>, 이후 <b>2년마다</b>입니다. 정확한 기한은 차량등록증의 최초 등록일 기준이며, 기한을 넘기면 과태료가 부과될 수 있습니다.</p>
+      <button type="button" class="mini-btn" id="icsInsp">📅 정기검사 일정 캘린더에 넣기</button>
+    </div>
+
+    <h2 class="sec-title">소모품 8종 진단</h2>
+    <p class="sec-sub" id="fuelNote">—</p>
+    <div class="item-list" id="itemList"></div>
+
+    <button type="button" class="ics-all" id="icsAll">📅 점검 일정 전부 캘린더에 넣기 (.ics)</button>
+    <p class="ics-hint" id="icsHint" role="status"></p>
+    <p class="note">일반 승용차 기준 참고치입니다. 제조사·차종마다 권장 주기가 다르니 <b>차량 매뉴얼(정비 지침서)</b>을 함께 확인하세요. 계기판 경고등이 켜지면 이 결과와 상관없이 바로 점검받으세요.</p>
+
+    <div class="coupang-slot" id="coupangSlot" hidden></div>
+
+    <aside class="promo">
+      <p class="promo-kicker">차계부 · 유지비 관리</p>
+      <h3>점검일, 기록으로 남기면<br>새는 돈이 보입니다</h3>
+      <p class="promo-body">주유·정비·보험·세금을 한 장에 기록하면 월 유지비와 다음 점검일이 자동으로 정리되는 <b>오토차관리 차계부</b>(엑셀·구글시트)입니다.</p>
+      <div class="promo-btns">
+        <a class="btn primary" href="https://smartstore.naver.com/autosheet/products/13894432295" target="_blank" rel="noopener noreferrer">차계부 · 7,000원</a>
+        <a class="btn ghost" href="https://smartstore.naver.com/autosheet/products/13899633867" target="_blank" rel="noopener noreferrer">유지비 가이드 · 4,900원</a>
+      </div>
+      <p class="promo-alt">신차·중고차 인수 전 점검 항목과 5년 유지비 예상표를 한 번에 → <a href="https://smartstore.naver.com/autosheet/products/13899633867" target="_blank" rel="noopener noreferrer">출고 점검 &amp; 유지비 가이드 PDF</a></p>
+      <p class="promo-alt">자동차 상식이 궁금하면 → <a href="https://www.youtube.com/@chagokcar" target="_blank" rel="noopener noreferrer">유튜브 차곡카</a>에서 매주 올립니다.</p>
+    </aside>
+  </section>
+
+  <section class="wrap about" id="about">
+    <h2>이 계산기는 이렇게 봅니다</h2>
+    <p><b>남은 주행거리</b>는 권장 교체 주기에서 지금까지 달린 거리를 뺀 값입니다. 최근 교체 기록을 넣지 않으면 주행거리를 주기로 나눈 나머지로 추정합니다(추정 표시).</p>
+    <p><b>예상 시점</b>은 월평균 주행거리로 계산한 대략의 연·월입니다. 실제 시기는 운전 습관, 도로 상황, 계절에 따라 달라집니다.</p>
+    <p><b>정기검사</b>는 비사업용 승용차 기준입니다. 영업용·사업용, 11인승 이상 승합차, 화물차는 주기가 다릅니다.</p>
+    <p class="disclaimer">이 도구는 참고용이며 정비 판단을 대신하지 않습니다. 안전과 직결되는 브레이크·타이어는 소리가 나거나 떨림이 있으면 즉시 정비소에서 확인하세요.</p>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p class="foot-brand">자몽스튜디오 <span>ZAMONG STUDIO</span></p>
+    <p class="foot-links">
+      <a href="../">직장인 계산기 3종</a>
+      <a href="https://www.youtube.com/@chagokcar" target="_blank" rel="noopener noreferrer">유튜브 차곡카</a>
+      <a href="https://smartstore.naver.com/autosheet" target="_blank" rel="noopener noreferrer">스마트스토어</a>
+      <a href="https://work-money-note.tistory.com" target="_blank" rel="noopener noreferrer">티스토리</a>
+      <a href="https://blog.naver.com/army51102" target="_blank" rel="noopener noreferrer">네이버 블로그</a>
+    </p>
+    <p class="copy">© 2026 ZAMONG STUDIO. 계산 결과는 참고용입니다.</p>
+  </div>
+</footer>
+
+<script src="app.js" defer></script>
+</body>
+</html>

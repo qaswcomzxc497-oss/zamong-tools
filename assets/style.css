@@ -249,3 +249,16 @@ a{color:inherit}
 @media (prefers-reduced-motion:reduce){
   *{animation:none !important;transition:none !important}
 }
+
+/* sub-app banner (내 차 정비·소모품 체크) */
+.tool-banner{display:flex;align-items:center;gap:12px;margin-top:14px;text-decoration:none;
+  background:var(--ink);color:#fff;border-radius:16px;padding:14px 16px;
+  box-shadow:0 1px 2px rgba(31,36,48,.06),0 12px 26px -18px rgba(31,36,48,.5)}
+.tool-banner-ico{font-size:23px;line-height:1;flex:0 0 auto}
+.tool-banner-txt{display:flex;flex-direction:column;gap:2px;flex:1 1 auto;min-width:0}
+.tool-banner-txt b{font-size:14.5px;font-weight:800;letter-spacing:-0.03em}
+.tool-banner-txt i{font-style:normal;font-size:11.5px;color:#B9C0CF;line-height:1.45}
+.tool-banner-go{flex:0 0 auto;font-size:12px;font-weight:800;color:var(--peach);white-space:nowrap}
+.tool-banner:hover .tool-banner-go{color:#fff}
+.tool-banner:active{transform:scale(.995)}
+@media (max-width:359px){.tool-banner{padding:12px 13px;gap:9px}.tool-banner-txt b{font-size:13.5px}}
